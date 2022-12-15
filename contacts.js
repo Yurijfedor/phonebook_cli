@@ -34,7 +34,7 @@ const removeContact = async (contactId) => {
     );
     await parsedContacts.splice(index, 1);
     await fs.writeFile(contactsPath, JSON.stringify(parsedContacts), "utf-8");
-    console.log(await fs.readFile(contactsPath, "utf-8"));
+    console.table(JSON.parse(await fs.readFile(contactsPath, "utf-8")));
   } catch (error) {
     console.log(error.message);
   }
